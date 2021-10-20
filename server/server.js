@@ -7,8 +7,8 @@ const transactionRouter = require('./routes/transactions');
 /**
  * handle parsing request body
  */
- app.use(express.json());
- app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, '../public')));
 
@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 app.use('/api/transactions', transactionRouter);
 
 //handle all requests for CRUD operations with user data
-app.use('/api/user', userRouter);
+// app.use('/api/user', userRouter);
 
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));

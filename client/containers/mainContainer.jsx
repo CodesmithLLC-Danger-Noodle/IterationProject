@@ -47,12 +47,16 @@ class MainContainer extends Component {
         })
       })
       .then(data => data.json()) 
-      .then(res => {
+      .then(res => 
+        // console.log("what the fuck"))
+        
+        {
         this.setState({
           transactions: res.data,
           total: res.total
         });
       })// added set state to re-render
+      
       .catch(err => console.log(err));
   };
 
@@ -83,7 +87,7 @@ class MainContainer extends Component {
         .catch(err => console.log(err));
       }
       else{
-        alert('CHOOSE A FUCKING CATEGORY');
+        alert('CHOOSE A FUCKING CATEGORY, BITCH');
         console.log('submit was clicked while category was still "choose category"');
       }
     };

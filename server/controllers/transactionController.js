@@ -7,6 +7,7 @@ const transactionController = {};
 
 //MIDDLEWARE TO ADD A TRANSACTION TO DB
 transactionController.addTransaction = (req, res, next) => {
+    
     //req.body is going to contain transaction name, amount, and category
     const addTransQuery = `INSERT INTO public.transactions (name, amount, date, category_id) VALUES ($1, $2, $3, $4) RETURNING *`; 
     const values = [req.body.name, req.body.amount, req.body.date, req.body.category_id]
