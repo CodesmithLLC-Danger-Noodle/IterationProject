@@ -13,7 +13,7 @@ class TotalsDisplay extends Component {
             <div>
               Budget:
               <br></br>
-              $5000
+              {this.props.budget}
             </div>
             <div>
               Total Spent:
@@ -23,9 +23,12 @@ class TotalsDisplay extends Component {
             <div>
               Remaining:
               <br></br>
-              <center>${5000 - this.props.total}</center>
+              <center>${this.props.budget - this.props.total}</center>
             </div>
-            <button id="editButton">Edit Budget</button>
+            <div id = "editBudgetContainer">
+              <input  type = "text" id = "editInput" placeholder = "Enter New Budget"></input>
+              <button id="editButton" onClick = {this.props.editBudget}>Edit Budget</button>
+            </div>
           </center>
         </div>
       )
