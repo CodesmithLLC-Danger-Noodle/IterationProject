@@ -1,28 +1,3 @@
-/* * {
-    box-sizing: border-box;
-} */
-
-/* .mainContainer {
-    border: 1px solid black;
-    background-color: #F0EBEB;
-    padding:  30px;
-    margin: 15px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px #D0C3C3;
-} */
-
-/* table.transactions td tr {
-    margin: 12px 12px 12px 12px;
-    padding: 12px 12px 12px 12px;
-}  */
-/* body:hover {
-  background-color: #5473869a;
-
-  animation-duration: 1s;
-  animation-name: spin;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-} */
 #logo:hover {
   background-color: #5473869a;
 

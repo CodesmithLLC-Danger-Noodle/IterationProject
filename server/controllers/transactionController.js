@@ -1,9 +1,27 @@
 const path = require('path');
+const { nextTick } = require('process');
 const db = require('../models/transactionsModel')
 const transactionController = {};
 
 //middleware goes here to handle db queries
 
+//MIDDLEWARE TO UPDATE A TRANSACTION IN THE DB
+transactionController.editTransaction = (req, res, next) => {
+    const column = req.body.type;
+    const change = req.body.payload;
+    const specificRow = req.body.id;
+    
+    const updateQueryText = `UPDATE public.transactions SET ${column} = '${change}' WHERE _id = '${specificRow}';`;
+
+    db.query(updateQueryText)
+        .then(data => {
+            console.log(data);
+            return next();
+        })
+        .catch(error => {
+            return next(error);
+        })
+}
 
 //MIDDLEWARE TO ADD A TRANSACTION TO DB
 transactionController.addTransaction = (req, res, next) => {

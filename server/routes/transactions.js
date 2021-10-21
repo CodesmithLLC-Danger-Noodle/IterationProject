@@ -29,9 +29,17 @@ router.post('/',
 });
 
 //on 'edit', find and update an existing transaction 
-// router.update('/', (req, res) => {
-
-// });
+router.put('/', 
+    //middleware edit transaction
+    transactionController.editTransaction,
+    //middleware get Transactions
+    transactionController.getTransaction,
+    //middleware get total
+    transactionController.getTotal,
+    //return response
+    (req, res) => {
+        return res.status(200).json({...res.locals})
+});
 
 //on 'delete' find and delete an existing transaction
 router.delete('/', 
