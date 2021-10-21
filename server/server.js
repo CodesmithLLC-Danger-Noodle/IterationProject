@@ -43,9 +43,9 @@ app.use((err, req, res, next) => {
 
 //server listening on port 3000
 // export app.listen as a variable instead of app
-// 
-app.listen(PORT, () => {
+
+const server = app.listen(PORT, () => {
     console.log(`Server listening on port: ${PORT}`);
   });
   
-module.exports = app; //server
+module.exports = server; //server
