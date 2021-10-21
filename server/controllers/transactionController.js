@@ -22,7 +22,9 @@ transactionController.editTransaction = (req, res, next) => {
         'Savings': '9', 
         'Other': '10'
     };
-    change = catList[change];
+    if(column === 'category') {
+        change = catList[change];
+    }
     console.log(change);
 
     const updateQueryText = `UPDATE public.transactions SET ${column} = '${change}' WHERE _id = '${specificRow}';`;
