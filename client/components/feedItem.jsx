@@ -14,7 +14,7 @@ class FeedItem extends Component {
           <div className="row" >
             <div className='item' onClick={()=>this.props.update(transactions[i]['_id'], 'date')}>{transactions[i].date}</div>
             <div className='item' onClick={()=>this.props.update(transactions[i]['_id'], 'name')}>{transactions[i].name}</div>
-            <div className='item' onClick={()=>this.props.update(transactions[i]['_id'], 'category')}>{transactions[i].category}</div>
+            <div className='item' onClick={()=>this.props.update(transactions[i]['_id'], 'category_id')}>{transactions[i].category}</div>
             <div className='item' onClick={()=>this.props.update(transactions[i]['_id'], 'amount')}>{transactions[i].amount}</div>
             <button className='delete' id='editButton' onClick={()=>this.props.delete(transactions[i]['_id'])}>X</button>
           </div>   

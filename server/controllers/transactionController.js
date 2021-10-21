@@ -7,10 +7,24 @@ const transactionController = {};
 
 //MIDDLEWARE TO UPDATE A TRANSACTION IN THE DB
 transactionController.editTransaction = (req, res, next) => {
+    console.log('in edit', typeof req.body.payload);
     const column = req.body.type;
-    const change = req.body.payload;
+    let change = req.body.payload;
     const specificRow = req.body.id;
-    
+    const catList = {
+        'Housing/Rent': '2', 
+        'Utilities': '3', 
+        'Gas': '4', 
+        'Groceries': '5', 
+        'Dining Out': '6', 
+        'Drinks': '7', 
+        'Entertainment': '8', 
+        'Savings': '9', 
+        'Other': '10'
+    };
+    change = catList[change];
+    console.log(change);
+
     const updateQueryText = `UPDATE public.transactions SET ${column} = '${change}' WHERE _id = '${specificRow}';`;
 
     db.query(updateQueryText)

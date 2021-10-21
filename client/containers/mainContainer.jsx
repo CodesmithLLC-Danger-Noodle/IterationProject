@@ -38,12 +38,13 @@ class MainContainer extends Component {
   };
 
   update(t_id, item_cat) {
+    console.log(item_cat);
     const payload = prompt("Please enter the new value", "value");
     const catList = ['Housing/Rent', 'Utilities', 'Gas', 'Groceries', 'Dining Out', 'Drinks', 'Entertainment', 'Savings', 'Other'];
-    if (item_cat === 'category' && !catList.includes(payload)) return alert("That is not a valid category");
-    if (item_cat === 'date' && typeof payload !== 'string') return alert("Please enter a valid string");
-    if (item_cat === 'amount' && typeof payload !== 'bigint') return alert("Please enter a valid bigint");
-    fetch ('api/transations', {
+    // if (item_cat === 'category' && !catList.includes(payload)) return alert("That is not a valid category");
+    // if (item_cat === 'date' && typeof payload !== 'string') return alert("Please enter a valid string");
+    // if (item_cat === 'amount' && typeof payload !== 'number') return alert("Please enter a valid bigint");
+    fetch ('api/transactions', {
       method: 'PUT',
       headers: {
         'Content-type': 'application/json'
