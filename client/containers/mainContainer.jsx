@@ -16,6 +16,7 @@ class MainContainer extends Component {
 
       this.submit = this.submit.bind(this);
       this.delete = this.delete.bind(this);
+      this.update = this.update.bind(this)
     }
   
 
@@ -36,6 +37,34 @@ class MainContainer extends Component {
       })
   };
 
+  update(t_id, item_cat) {
+    const payload = prompt("Please enter the new value", "value");
+    const catList = ['Housing/Rent', 'Utilities', 'Gas', 'Groceries', 'Dining Out', 'Drinks', 'Entertainment', 'Savings', 'Other'];
+    if (item_cat === 'category' && !catList.includes(payload)) return alert("That is not a valid category");
+    if (item_cat === 'date' && typeof payload !== 'string') return alert("Please enter a valid string");
+    if (item_cat === 'amount' && typeof payload !== 'bigint') return alert("Please enter a valid bigint");
+    fetch ('api/transations', {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: t_id,
+        type: item_cat,
+        payload: payload
+        //additional body properties will depend on how many buttons we use
+      })
+    })
+    .then(data => data.json())
+    .then(res => {
+      this.setState({
+        transactions: res.data,
+        total: res.total
+      });
+    })
+    .catch(err => console.log(err));
+  };
+  
   delete(t_id) {
       fetch('/api/transactions', {
         method: 'DELETE',
@@ -98,7 +127,7 @@ class MainContainer extends Component {
         <div className = 'mainContainer'>
           <img src={logo} id="logo"/>
           <InputsContainer submit={this.submit}/>
-          <DisplayContainer delete={this.delete} state={this.state}/>
+          <DisplayContainer delete={this.delete} update={this.update} state={this.state}/>
         </div>
       )
     };
