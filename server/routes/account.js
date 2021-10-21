@@ -6,7 +6,7 @@ router.put('/',
   accountController.editBudget, 
   (req, res) => {
   res.status(200).json(res.locals.budget)  
-  //{ _id: 1, budget: 707 }
+  // { _id: 1, budget: 707 }
 });
 
 module.exports = router;

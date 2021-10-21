@@ -69,7 +69,7 @@ transactionController.getTransaction = (req, res, next) => {
     LEFT OUTER JOIN categories ON categories._id = transactions.category_id`;
     db.query(getTransQuery)
         .then(data => {
-            // console.log(data.rows);
+            console.log('this is our getTransaction data', data.rows);
             res.locals.data = data.rows;
             return next();
         })
@@ -104,7 +104,6 @@ transactionController.getTotal = (req, res, next) => {
         
     transactions.forEach( obj => {
         total += Number(obj.amount);
-        
     })
 
     res.locals.total = total;

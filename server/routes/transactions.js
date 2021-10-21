@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const transactionController = require('../controllers/transactionController');
-
+const accountController = require('../controllers/accountController');
 
 
 //for displaying totals for transactions/summary data
 router.get('/', 
     transactionController.getTransaction, 
     transactionController.getTotal, 
+    accountController.getBudget,
     (req, res) => {
     // console.log(res.locals);
     res.status(200).json({...res.locals});

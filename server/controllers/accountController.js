@@ -19,14 +19,22 @@ const accountController = {};
 //             return next(err);
 //         });
 // };
+accountController.getBudget = (req, res, next) => {
+    const getQuery = "SELECT * FROM account";
+    db.query(getQuery)
+      .then(data => {
+          res.locals.budget = data.rows[0].budget;
+          return next();
+      })
+      .catch(error => {
+          return next(error);
+      })
+
+    
+}
 
 accountController.editBudget = (req, res, next) =>{
-  console.log('hi~!, we are here!', req.body);
-  // const addTransQuery = `INSERT INTO public.transactions (name, amount, date, category_id) VALUES ($1, $2, $3, $4) RETURNING *`; 
-  
-
-  // const updateQueryText = `UPDATE public.transactions SET ${column} = '${change}' WHERE _id = '${specificRow}';`;
-
+    // {budget: 12312}
   const values = [req.body.budget];
   // if budget doesn't exist in database
   const updateQuery = `UPDATE account SET budget = $1 WHERE _id = 1 RETURNING *`;
