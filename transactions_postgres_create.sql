@@ -26,6 +26,14 @@ CREATE TABLE users (
 	OIDS=FALSE
 );
 
+CREATE TABLE account (
+	"_id" serial NOT NULL,
+	"budget" bigInt NOT NULL,
+	CONSTRAINT "account_pk" PRIMARY KEY("_id")
+) WITH (
+	OIDS=FALSE
+);
+
 ALTER TABLE transactions ADD CONSTRAINT "transactions_fk0" FOREIGN KEY ("category_id") REFERENCES categories("_id");
 ALTER TABLE transactions ADD CONSTRAINT "transactions_fk1" FOREIGN KEY ("user_id") REFERENCES users("_id");
 
@@ -40,7 +48,9 @@ INSERT INTO categories VALUES (8, 'Entertainment');
 INSERT INTO categories VALUES (9, 'Savings');
 INSERT INTO categories VALUES (10, 'Other');
 
+
 -- INSERT INTO transactions VALUES (999, 'idk', 123.45, '10/18/2021', 6);
+-- INSERT INTO account VALUES (1, 5000);
 
 -- To Delete all transactions, uncomment delete and run command: 
 -- DELETE FROM transactions

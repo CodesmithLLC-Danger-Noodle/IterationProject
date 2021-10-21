@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const PORT = 3000; 
 const transactionRouter = require('./routes/transactions');
+const accountRouter = require('./routes/account');
 
 /**
  * handle parsing request body
@@ -20,6 +21,9 @@ app.get('/', (req, res) => {
 
 //handle all requests for CRUD operations with transaction data
 app.use('/api/transactions', transactionRouter);
+app.use('/api/account', accountRouter);
+// handle changes to budget
+
 
 //handle all requests for CRUD operations with user data
 // app.use('/api/user', userRouter);

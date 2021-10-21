@@ -11,12 +11,14 @@ class MainContainer extends Component {
 
       this.state = {
         transactions: [],
-        total: 0
+        total: 0,
+        budget: 5000
       };
 
       this.submit = this.submit.bind(this);
       this.delete = this.delete.bind(this);
       this.update = this.update.bind(this)
+      this.editBudget = this.editBudget.bind(this);
     }
   
 
@@ -28,9 +30,10 @@ class MainContainer extends Component {
         // console.log('received data', data);
         this.setState({
           transactions: data.data,
-          total: data.total
+          total: data.total,
+          budget: data.budget
         });
-        console.log('new state', this.state);
+        // console.log('new state', this.state);
       })
       .catch(err => {
         console.log('error fetching transaction data', err);
@@ -59,8 +62,10 @@ class MainContainer extends Component {
     .then(data => data.json())
     .then(res => {
       this.setState({
+        //THIS.STATE OR JUST STATE????
+        ...this.state, 
         transactions: res.data,
-        total: res.total
+        total: res.total,
       });
     })
     .catch(err => console.log(err));
@@ -82,8 +87,9 @@ class MainContainer extends Component {
         
         {
         this.setState({
+          ...state,
           transactions: res.data,
-          total: res.total
+          total: res.total,
         });
       })// added set state to re-render
       
@@ -110,6 +116,7 @@ class MainContainer extends Component {
         .then(data => {
           const transactions = data.data;
           this.setState({
+            ...this.state, 
             transactions: transactions,
             total: data.total
           });
@@ -122,13 +129,38 @@ class MainContainer extends Component {
       }
     };
 
+    editBudget (){
+      console.log('edit Budget function', document.getElementById('editInput').value);
+      // const newBudget = document.getElementById('editBudget').value;
+      fetch('/api/account', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          budget: document.getElementById('editInput').value
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // console.log(data);
+        this.setState({
+          ...this.state, 
+          budget: data.budget
+        });
+      })
+      .catch(err => console.log(err));
+      
+    }
+
+
 
     render(){
       return (
         <div className = 'mainContainer'>
           <img src={logo} id="logo"/>
           <InputsContainer submit={this.submit}/>
-          <DisplayContainer delete={this.delete} update={this.update} state={this.state}/>
+          <DisplayContainer delete={this.delete} update={this.update} state={this.state} editBudget={this.editBudget}/>
         </div>
       )
     };

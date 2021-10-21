@@ -18,7 +18,7 @@ class DisplayContainer extends Component {
           <FeedItem delete={this.props.delete} state={this.props.state} update={this.props.update}/>
           <Total total = {this.props.state.total}/>
           <div id="chartContainer">
-            <TotalsDisplay total={this.props.state.total}/>
+            <TotalsDisplay budget={this.props.state.budget} total={this.props.state.total} editBudget={this.props.editBudget}/>
             <PieChart transactions={this.props.state.transactions} total={this.props.state.total}/>
           </div>
         </div>
