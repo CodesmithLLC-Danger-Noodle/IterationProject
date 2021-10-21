@@ -15,7 +15,7 @@ class DisplayContainer extends Component {
       return (
         <div className = "displayContainer">
           <h3>October Spending:</h3>
-          <FeedItem delete={this.props.delete} state={this.props.state}/>
+          <FeedItem delete={this.props.delete} state={this.props.state} update={this.props.update}/>
           <Total total = {this.props.state.total}/>
           <div id="chartContainer">
             <TotalsDisplay total={this.props.state.total}/>
