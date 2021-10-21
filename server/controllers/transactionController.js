@@ -9,6 +9,7 @@ const transactionController = {};
 transactionController.editTransaction = (req, res, next) => {
     console.log('in edit', typeof req.body.payload);
     const column = req.body.type;
+    console.log(column);
     let change = req.body.payload;
     const specificRow = req.body.id;
     const catList = {
@@ -22,7 +23,7 @@ transactionController.editTransaction = (req, res, next) => {
         'Savings': '9', 
         'Other': '10'
     };
-    if(column === 'category') {
+    if(column === 'category_id') {
         change = catList[change];
     }
     console.log(change);
