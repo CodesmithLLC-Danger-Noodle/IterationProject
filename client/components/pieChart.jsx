@@ -68,8 +68,8 @@ class PieChart extends Component {
       return (
         <div className = "pieChartContainer">
           <center>
-          <h3>Total Spending</h3>
-          <Doughnut
+          <h3 id = "pieChartTotal">Total Spending</h3>
+          <Doughnut id = "pieChart"
             data={whatWasState}
             options={{
               responsiveness: true,

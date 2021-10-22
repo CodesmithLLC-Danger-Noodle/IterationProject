@@ -11,12 +11,12 @@ class FeedItem extends Component {
       for (let i = 0; i < transactions.length; i++) {
         rows.push(
           <div key={i}>
-          <div className="row" >
-            <div className='item' onClick={()=>this.props.update(transactions[i]['_id'], 'date')}>{transactions[i].date}</div>
-            <div className='item' onClick={()=>this.props.update(transactions[i]['_id'], 'name')}>{transactions[i].name}</div>
-            <div className='item' onClick={()=>this.props.update(transactions[i]['_id'], 'category_id')}>{transactions[i].category}</div>
-            <div className='item' onClick={()=>this.props.update(transactions[i]['_id'], 'amount')}>{transactions[i].amount}</div>
-            <button className='delete' id='editButton' onClick={()=>this.props.delete(transactions[i]['_id'])}>X</button>
+          <div className="row">
+            <div className='item' id= {`${i}date`} onClick={()=>this.props.update(transactions[i]['_id'], 'date')}>{transactions[i].date}</div>
+            <div className='item' id= {`${i}name`} onClick={()=>this.props.update(transactions[i]['_id'], 'name')}>{transactions[i].name}</div>
+            <div className='item' id= {`${i}category_id`} onClick={()=>this.props.update(transactions[i]['_id'], 'category_id')}>{transactions[i].category}</div>
+            <div className='item' id= {`${i}amount`} onClick={()=>this.props.update(transactions[i]['_id'], 'amount')}>{transactions[i].amount}</div>
+            <button className='delete' id={`${i}editButton`} onClick={()=>this.props.delete(transactions[i]['_id'])}>X</button>
           </div>   
         </div>   
         )
@@ -25,10 +25,10 @@ class FeedItem extends Component {
       return (
         <div className='transactionsDisplay'>
           <div className="headerRow">
-              <span className='header'>Date</span>
-              <span className='header'>Transaction</span>
-              <span className='header'>Category</span>
-              <span className='header'>Amount</span>
+              <span className='header' id='date'>Date</span>
+              <span className='header' id='transaction'>Transaction</span>
+              <span className='header'id='bob'>Category</span>
+              <span className='header' id='amount'>Amount</span>
           </div>
           <div className="feedItem">
             <div className="transactionTable">

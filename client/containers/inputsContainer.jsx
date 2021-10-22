@@ -7,7 +7,7 @@ class InputsContainer extends Component {
 
     render(){
       return (
-        <div className = 'inputContainer'>
+        <div className = 'inputContainer' id = 'farts'>
           <input type="text" className='input' id="transactionName" placeholder='Transaction'/>
           <input type="text" className='input' id="transactionAmt" placeholder='Amount'/>
           <select name="Category" className='input' id="category">

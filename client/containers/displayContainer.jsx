@@ -14,11 +14,11 @@ class DisplayContainer extends Component {
     render(){
       return (
         <div className = "displayContainer">
-          <h3>October Spending:</h3>
+          <h3 id = 'october'>October Spending:</h3>
           <FeedItem delete={this.props.delete} state={this.props.state} update={this.props.update}/>
           <Total total = {this.props.state.total}/>
           <div id="chartContainer">
-            <TotalsDisplay budget={this.props.state.budget} total={this.props.state.total} editBudget={this.props.editBudget}/>
+            <TotalsDisplay transactions={this.props.state.transactions} budget={this.props.state.budget} total={this.props.state.total} editBudget={this.props.editBudget}/>
             <PieChart transactions={this.props.state.transactions} total={this.props.state.total}/>
           </div>
         </div>

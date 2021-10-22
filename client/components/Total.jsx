@@ -8,7 +8,9 @@ class Total extends Component {
     render(){
       return (
         <div className='total'>
+          <div id='butts'>
           Total: ${this.props.total}
+          </div>
         </div>
       )
     }

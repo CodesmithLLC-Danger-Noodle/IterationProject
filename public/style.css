@@ -1,7 +1,7 @@
 #logo:hover {
   background-color: #5473869a;
 
-  animation-duration: 0.1s;
+  animation-duration: 3s;
   animation-name: spin;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -68,10 +68,10 @@ button {
   width: 143px;
 }
 
-#editButton:hover {
+.delete:hover {
   background-color: #5473869a;
 
-  animation-duration: 0.1s;
+  animation-duration: 3s;
   animation-name: spin;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -213,9 +213,17 @@ button {
   border-radius: 10px;
   box-shadow: 5px 5px 5px #c7c7c7;
 }
-.pieChartContainer:hover {
+/* .pieChartContainer:hover {
   background-color: #5473869a;
 
+  animation-duration: 3s;
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+} */
+
+.ohNo:hover {
+  background-color: #5473869a;
   animation-duration: 0.1s;
   animation-name: spin;
   animation-iteration-count: infinite;
@@ -251,14 +259,7 @@ button {
   justify-content: space-around;
   background-color: #e7e7e7;
 }
-/* #chartContainer:hover {
-  background-color: #5473869a;
 
-  animation-duration: 0.1s;
-  animation-name: spin;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-} */
 
 h1 {
   font-family: "Ephesis", cursive;

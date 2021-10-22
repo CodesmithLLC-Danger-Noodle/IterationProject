@@ -62,7 +62,6 @@ class MainContainer extends Component {
     .then(data => data.json())
     .then(res => {
       this.setState({
-        //THIS.STATE OR JUST STATE????
         ...this.state, 
         transactions: res.data,
         total: res.total,
@@ -83,11 +82,10 @@ class MainContainer extends Component {
       })
       .then(data => data.json()) 
       .then(res => 
-        // console.log("what the fuck"))
         
         {
         this.setState({
-          ...state,
+          ...this.state,
           transactions: res.data,
           total: res.total,
         });
@@ -100,6 +98,7 @@ class MainContainer extends Component {
     submit(){
       console.log('submit activated')
       if(document.getElementById('category').value !== "1"){
+        
         fetch('/api/transactions', {
           method: 'POST',
           headers: {
@@ -120,11 +119,14 @@ class MainContainer extends Component {
             transactions: transactions,
             total: data.total
           });
+          document.getElementById('transactionName').value = '';
+          document.getElementById('transactionAmt').value = '';
+          document.getElementById('category').value = 1;
         })
         .catch(err => console.log(err));
       }
       else{
-        alert('CHOOSE A FUCKING CATEGORY, BITCH');
+        alert('Please choose an actual category :)');
         console.log('submit was clicked while category was still "choose category"');
       }
     };
@@ -150,7 +152,8 @@ class MainContainer extends Component {
         });
       })
       .catch(err => console.log(err));
-      
+
+      document.getElementById('editInput').value = '';
     }
 
 
